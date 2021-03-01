@@ -1,24 +1,40 @@
 # frontend
 
-## Project setup
+# 本地开发环境配置
+
+Clone repo到本地，用vscode打开folder
+
+安装npm，方法很多种，仅供参考
+
 ```
-npm install
+sudo apt update
+
+sudo apt install nodejs npm
 ```
 
-### Compiles and hot-reloads for development
+安装好npm后，按以下顺序安装
+
 ```
-npm run serve
+sudo npm install vue
+
+sudo npm install -g npm-install-peers
+
+# 这里很容易出现error，解决方案按照报错Google
+sudo npm install -g @vue/cli
+
+sudo npm install axios
+
+sudo npm install vue-axios
+
+sudo npm install vue-particles
+
+sudo npm install element-ui
+
+sudo npm install vue-router
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 如何运行前端代码
 
-### Lints and fixes files
-```
-npm run lint
-```
+首次运行，需要先跑一次 ```npm install```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+之后运行只需要跑 ```npm run serve```
