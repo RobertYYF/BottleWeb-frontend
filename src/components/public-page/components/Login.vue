@@ -54,6 +54,7 @@ export default {
       content: "Login Page",
       user: new User("", ""),
       loading: false,
+      message: ''
     };
   },
 
@@ -74,15 +75,29 @@ export default {
     handleLogin() {
       if (this.user.username && this.user.password) {
         this.$store.dispatch("auth/login", this.user).then(
-          (response) => {
-            if (Object.keys(response).length != 0) {
+
+          () => {
               this.$router.push("/home/profile");
-            } else {
-              // login failed --> show error box
+            },
+            error => {
+              this.loading = true;
               console.log("Login failed")
-              this.loading = true
-            }
+              this.message =
+                (error.response && error.response.data && error.response.data.message) ||
+                error.message ||
+                error.toString();
           }
+
+          // (response) => {
+          //   if (Object.keys(response).length != 0) {
+          //     this.$router.push("/home/profile");
+          //   } else {
+          //     // login failed --> show error box
+          //     console.log("Login failed")
+          //     this.loading = true
+
+          //   }
+          // }
         );
       }
     },
