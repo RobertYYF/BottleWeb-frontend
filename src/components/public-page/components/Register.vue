@@ -1,6 +1,7 @@
 <template>
   <div class="register">
     <vue-particles color="#dedede"></vue-particles>
+    <div class="return-home"><button class="home-btn" @click="toHome">Home</button></div>
     <div class="login-container">
       <h1>Register</h1>
 
@@ -104,6 +105,10 @@ export default {
         );
       }
     },
+
+    toHome() {
+          this.$router.push("/home");
+      },
 
     returnFunc() {
       this.$router.push("/welcome/login");

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Admin',
+  name: 'AdminOption',
   computed: {
     currentUser() {
       return this.$store.state.auth.user;

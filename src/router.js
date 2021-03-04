@@ -4,10 +4,12 @@ import Welcome from './components/public-page/Welcome.vue'
 import Login from './components/public-page/components/Login.vue'
 import Register from './components/public-page/components/Register.vue'
 
-import Home from './components/main/Home.vue'
-import Profile from './components/main/components/Profile.vue'
-import Message from './components/main/components/Message.vue'
-import Admin from './components/main/components/Admin.vue'
+import Admin from './components/admin/Admin.vue'
+import Profile from './components/admin/components/Profile.vue'
+import Message from './components/admin/components/Message.vue'
+import AdminOption from './components/admin/components/AdminOption.vue'
+
+import Home from './components/home/Home.vue'
 
 import Error from './components/error/Error.vue'
 
@@ -16,7 +18,7 @@ const router = new VueRouter({
     base: __dirname,
     routes: [
       { path: '/', 
-        redirect: '/welcome/login'},
+        redirect: '/home'},
 
       {
         path: '/error',
@@ -37,9 +39,16 @@ const router = new VueRouter({
         ]
       },
 
-      { path: '/home',
+      {
+        path: '/home',
         name: 'home',
         component: Home,
+        children: []
+      },
+
+      { path: '/admin',
+        name: 'admin',
+        component: Admin,
         children: [
           { path: 'profile',
             name: 'profile',
@@ -50,9 +59,9 @@ const router = new VueRouter({
             component: Message
             },
           {
-            path: 'admin',
-            name: 'admin',
-            component: Admin
+            path: 'adminoption',
+            name: 'adminoption',
+            component: AdminOption
           }
         ]
       }
@@ -60,15 +69,15 @@ const router = new VueRouter({
   })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/welcome/login', '/welcome/register'];
-  const adminPages = ['/home/admin'];
+  const publicPages = ['/welcome/login', '/welcome/register', '/home'];
+  const adminPages = ['/admin'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
   const adminOnly = adminPages.includes(to.path);
   // trying to access a restricted page + not logged in
   // redirect to login page
   if (authRequired && !loggedIn) {
-    next('/welcome/login');
+    next('/home');
   } else if (!authRequired) {
     next();
   } else {

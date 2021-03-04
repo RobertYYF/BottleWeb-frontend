@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="admin">
     <el-container style="height: 100%; border: 1px solid #eee">
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
         <img src="../../assets/chess.png" alt="Chess">
@@ -58,7 +58,7 @@
 <script>
 
 export default {
-  name: "Home",
+  name: "Admin",
 
   computed: {
     currentUser() {
@@ -84,13 +84,13 @@ export default {
       this.$router.push("/welcome/login");
     },
     moveToProfile() {
-      this.$router.push("/home/profile");
+      this.$router.push("/admin/profile");
     },
     moveToMessage() {
-      this.$router.push("/home/message");
+      this.$router.push("/admin/message");
     },
     moveToAdmin() {
-      this.$router.push("/home/admin");
+      this.$router.push("/admin/adminoption");
     }
   },
 };

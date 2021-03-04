@@ -1,6 +1,7 @@
 <template>
   <div class="particles">
     <vue-particles color="#fff" linesColor="#fff"></vue-particles>
+    <div class="return-home"><button class="home-btn" @click="toHome">Home</button></div>
     <div class="login-container">
       <h1>Login</h1>
       <div class="login">
@@ -38,7 +39,7 @@
         </div>
         <br />
         <h4>OR</h4>
-        <button v-on:click="moveToRegister">sign up</button>
+        <button class="register-btn" v-on:click="moveToRegister">sign up</button>
       </div>
     </div>
   </div>
@@ -77,7 +78,7 @@ export default {
         this.$store.dispatch("auth/login", this.user).then(
 
           () => {
-              this.$router.push("/home/profile");
+              this.$router.push("/home");
             },
             error => {
               this.loading = true;
@@ -100,6 +101,10 @@ export default {
           // }
         );
       }
+    },
+
+    toHome() {
+        this.$router.push("/home");
     },
 
     moveToRegister() {
@@ -242,5 +247,16 @@ button:active {
   right: 0;
   margin: 0 auto;
   margin-top: -160px;
+}
+
+.return-home {
+  position: fixed;
+  top: 10px;
+  left: 30px;
+  z-index: 9;
+}
+
+.home-btn {
+  width: 60px;
 }
 </style>
