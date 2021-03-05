@@ -114,7 +114,7 @@ index.js很简单，打包刚刚的auth.module.js，通过export default传出�
 
 在用户登录以后，前端得到的token被储存到store里，在后续前端需要向后端发request拿信息的时候，该token需要被添加到request header中（request的JSON里加一个"accessToken": token-value），让后端能够识别该用户，增加安全性（不能让后端给谁都回复）
 
-目前代码里还没有添加token到header并发送request的部分（可以写一个service负责封装token到request再发送），但后续例如message部分应该就得用token header了，这个部分留就给巨巨们完成。
+目前代码里还没有添加token到header并发送request的部分（可以写一个service负责封装token到request再发送），但后续例如message部分应该就得用token header了，这个部分留给巨巨们完成。
 
 后续安全性功能可能还要加个WAF(Web Application Firewall)用来防止网站攻击（过滤请求），这个部分应该很难，有兴趣的巨佬可以先写写看
 
