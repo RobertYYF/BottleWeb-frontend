@@ -4,12 +4,12 @@
 
 Clone repo到本地，用vscode打开folder
 
-安装npm，方法很多种，仅供参考
+安装npm，方法很多种，以下为NodeSource版，仅供参考 (更新：推荐使用NodeSource提供的npm版本，不容易碰到奇怪bug)
 
 ```
-sudo apt update
+sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
-sudo apt install nodejs npm
+sudo apt install nodejs
 ```
 
 安装好npm后，按以下顺序安装
