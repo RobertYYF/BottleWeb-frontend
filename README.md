@@ -51,6 +51,29 @@ sudo npm install vue-router
 ## router.js
 
 路由管理器, 分配页面url，里面的router.beforeEach()理解为过滤器，比如可以防止普通用户访问ADMIN页面
+```
+                                --- AdminOption.vue
+          |------ Admin.vue ---|--- Message.vue (没用的，后面会删掉)
+          |                     --- Profile.vue (没用的，后面会删掉)
+          | 
+          |                    --- Chat.vue
+          |------ Home.vue ---|
+          |                    --- TopNav.vue
+App.vue --|
+          |                       --- Login.vue
+          |------ Welcome.vue ---| 
+          |                       --- Register.vue
+          |
+          |------ Error.vue
+  
+```
+router.js 中routes: []里主要表达的便是上面这个图，声明组件的父子关系
+
+子组件被父组件调用有两种方式：
+
+1. 在页面中直接声明component并插入，例如Home.vue中使用的TopNav
+
+2. 使用```<router-view class="view"></router-view>```动态选择组件，由url决定组件的显示，例如访问localhost:8081/home时，App.vue中的router-view显示Home组件，当跳转到localhost:8080/error时，App.vue中的router-view显示Error组件
 
 ## App.vue 
 
@@ -68,7 +91,7 @@ sudo npm install vue-router
 
 ## user.js
 
-models中的user.js定义了这个网站的用户User，等同于Java中的Class User然后确定了几个variable
+models中的user.js定义了这个网站的用户User，等同于Java中的class User然后确定了几个variable
 
 ## service
 
