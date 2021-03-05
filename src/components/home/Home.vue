@@ -19,7 +19,7 @@
       <div class="btn">
         <img src="../../assets/frontend.png">
       </div>
-      <div class="btn">
+      <div class="btn" @click="moveToPractice">
         <img src="../../assets/practice.png">
       </div>
     </div>
@@ -101,6 +101,9 @@ export default {
     },
     moveToAdmin() {
       this.$router.push("/admin");
+    },
+    moveToPractice() {
+      this.$router.push("/practice");
     }
   },
 };

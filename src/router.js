@@ -10,6 +10,7 @@ import Message from './components/admin/components/Message.vue'
 import AdminOption from './components/admin/components/AdminOption.vue'
 
 import Home from './components/home/Home.vue'
+import Practice from './components/home/components/Practice.vue'
 
 import Error from './components/error/Error.vue'
 
@@ -64,12 +65,19 @@ const router = new VueRouter({
             component: AdminOption
           }
         ]
+      },
+
+      {
+        path: '/practice',
+        name: 'practice',
+        component: Practice
       }
+
     ]
   })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/welcome/login', '/welcome/register', '/home'];
+  const publicPages = ['/welcome/login', '/welcome/register', '/home', '/practice'];
   const adminPages = ['/admin'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
