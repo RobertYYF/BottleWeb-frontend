@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// change to corresponding backend URL
 const API_URL = 'http://localhost:8080/';
 
 class AuthService {

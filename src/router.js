@@ -14,6 +14,10 @@ import Practice from './components/home/components/Practice.vue'
 
 import Error from './components/error/Error.vue'
 
+import Test from './components/test/Test.vue'
+import PublicContent from './components/test/components/PublicContent.vue'
+import PrivateContent from './components/test/components/PrivateContent.vue'
+
 const router = new VueRouter({
     mode: '',
     base: __dirname,
@@ -71,13 +75,33 @@ const router = new VueRouter({
         path: '/practice',
         name: 'practice',
         component: Practice
+      },
+
+      {
+        path: '/test',
+        name: 'test',
+        component: Test,
+        children: [
+          {
+            path: 'public',
+            name: 'public',
+            component: PublicContent
+          },
+
+          {
+            path: 'private',
+            name: 'private',
+            component: PrivateContent
+          }
+        ]
       }
 
     ]
   })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/welcome/login', '/welcome/register', '/home', '/practice'];
+  const publicPages = ['/welcome/login', '/welcome/register', '/home', '/practice', 
+                        '/test', '/test/public'];
   const adminPages = ['/admin'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
