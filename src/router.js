@@ -6,7 +6,6 @@ import Register from './components/public-page/components/Register.vue'
 
 import Admin from './components/admin/Admin.vue'
 import Profile from './components/admin/components/Profile.vue'
-import Message from './components/admin/components/Message.vue'
 import AdminOption from './components/admin/components/AdminOption.vue'
 
 import Home from './components/home/Home.vue'
@@ -58,10 +57,6 @@ const router = new VueRouter({
           { path: 'profile',
             name: 'profile',
             component: Profile
-            },
-          { path: 'message',
-            name: 'message',
-            component: Message
             },
           {
             path: 'adminoption',

@@ -103,7 +103,10 @@ export default {
       this.$router.push("/admin");
     },
     moveToPractice() {
-      this.$router.push("/practice");
+      let route = this.$router.resolve({path: "/practice"});
+      // let route = this.$router.resolve('/link/to/page'); // This also works.
+      window.open(route.href, '_blank');
+
     }
   },
 };

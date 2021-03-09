@@ -2,18 +2,9 @@
   <div class="admin">
     <el-container style="height: 100%; border: 1px solid #eee">
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-        <img src="../../assets/chess.png" alt="Chess">
-        <el-menu :default-openeds="['1', '3']">
-          <el-submenu index="1">
-            <template slot="title"
-              ><i class="el-icon-message"></i>Message</template
-            >
-            <el-menu-item-group>
-              <el-menu-item index="1-1" @click.native="moveToMessage">Message Option1</el-menu-item>
-              <el-menu-item index="1-2">Option2</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-submenu index="2" v-if="isAdmin">
+        <img src="../../assets/chess.png" alt="Chess" @click="moveToHome">
+        <el-menu :default-openeds="['1', '2']">
+          <el-submenu index="1" v-if="isAdmin">
             <template slot="title"
               ><i class="el-icon-setting"></i>Admin</template
             >
@@ -22,7 +13,7 @@
               <el-menu-item index="3-2">Option2</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-          <el-submenu index="3">
+          <el-submenu index="2">
             <template slot="title"
               ><i class="el-icon-info"></i>User</template
             >
@@ -91,6 +82,9 @@ export default {
     },
     moveToAdmin() {
       this.$router.push("/admin/adminoption");
+    },
+    moveToHome() {
+      this.$router.push("/home");
     }
   },
 };
