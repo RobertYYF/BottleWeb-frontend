@@ -11,7 +11,7 @@ export default {
   name: "Practice",
 
   created() {
-    window.location.href = "https://codepen.io/";
+    window.location.href = "https://codepen.io/pen/";
   },
 
   data() {
