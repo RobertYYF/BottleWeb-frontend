@@ -105,9 +105,9 @@ service中的auth.service.js定义了几个function会在登录登出注册时�
 
 auth-header.js中的那个func用于提取用户登录成功以后得到的token，我们先不管这个，暂时用不上
 
-## store (难点)
+## store
 
-store是个难点，Vue官方定义： ”store”基本上就是一个容器，它包含着你的应用中大部分的状态 (state)
+Vue官方定义： ”store”基本上就是一个容器，它包含着你的应用中大部分的状态 (state)
 
 我们的store分为俩部分，其中
 
@@ -123,13 +123,6 @@ auth.module.js负责初始化store容器，并提供一堆login,register时会�
 这就是完整的一个登录操作,其他操作都会进行类似的步骤，以此类推就看得懂了
 
 index.js很简单，打包刚刚的auth.module.js，通过export default传出一个store module，在main.js中被调用：```import store from './store'```,这行的这个store就是指这个export出来的store module,给他取了名叫store
-
-## 总结
-
-到这应该能搞懂整个前端是咋跑的了，可以根据刚刚的login步骤推断出其他操作的运行流程
-
-有问题直接群里滴滴哈
-
 
 ## 安全
 
